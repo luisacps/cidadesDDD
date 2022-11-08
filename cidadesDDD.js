@@ -2,8 +2,9 @@ document.querySelector("#ddd").addEventListener('change', procurarAPI);
 c = new Array();
 
 function procurarAPI(algo) {
-    fetch(`https://brasilapi.com.br/api/ddd/v1/${ddd.target.value}`)
-    .then(res => res.json())
+    const ddd = algo.target.value
+    fetch(`https://brasilapi.com.br/api/ddd/v1/${ddd}`)
+    .then(resposta => resposta.json())
     .then (dados => {
         c = dados.cities;
         listarCidades();
