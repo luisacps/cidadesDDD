@@ -1,22 +1,23 @@
-document.querySelector("#ddd").addEventListener('change', procurarAPI);
-c = new Array();
+const inputDDD = document.querySelector('#ddd');
+inputDDD.addEventListener('change', procurarAPI);
+cid = new Array();
 
-function procurarAPI(algo) {
-    const ddd = algo.target.value
+function procurarAPI(e) {
+    const ddd = e.target.value
     fetch(`https://brasilapi.com.br/api/ddd/v1/${ddd}`)
-    .then(resposta => resposta.json())
-    .then (dados => {
-        c = dados.cities;
+    .then(respo => respo.json())
+    .then(dado => {
+        cid = dado.cities;
         listarCidades();
-    });
+    })
 }
 
 function listarCidades() {
     l = document.querySelector('ul');
     l.textContent = '';
-    city.forEach(c => {
-        elemento = document.createElement('li');
-        elemento.textContent = c;
-        l.append(elemento);
-    });
+    cid.forEach(cid => {
+        a = document.createElement('li');
+        a.textContent = cid;
+        l.append(a);
+    })
 }
